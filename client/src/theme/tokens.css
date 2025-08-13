@@ -1,0 +1,109 @@
+:root {
+  /* Color tokens (UX_Guide-aligned) */
+  --color-bg: #0b1220;
+  --color-surface: #111a2a;
+  --color-text: #eaf2ff;
+  --color-muted: #9ab0c9;
+  --color-primary: #0aa6ff; /* tech blue */
+  --color-secondary: #ff9b2f; /* energetic orange */
+  --color-accent: #a970ff; /* purple */
+  --color-success: #2ecc71;
+  --color-warning: #ffcc00;
+  --color-danger: #ff4d4d;
+
+  /* 8-bit aesthetic helpers */
+  --pixel-border: 4px;
+  --pixel-radius: 0;
+  --shadow-8bit: 0 0 0 2px rgba(0, 0, 0, 0.6), 4px 4px 0 0 rgba(0, 0, 0, 0.6);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Typography */
+  --font-display: "Press Start 2P", "Pixelify Sans", system-ui, sans-serif;
+  --font-body: "Pixelify Sans", "IBM Plex Mono", system-ui, sans-serif;
+}
+
+.pixel-button {
+  background: linear-gradient(180deg, #0f1b2c, #0b1522);
+  color: var(--color-text);
+  border: var(--pixel-border) solid #165a86;
+  border-radius: var(--pixel-radius);
+  box-shadow: var(--shadow-8bit);
+  padding: 12px 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  min-width: 220px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.pixel-button:hover {
+  filter: brightness(1.12);
+}
+
+.pixel-button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.pixel-button[data-variant="primary"] {
+  border-color: var(--color-primary);
+  background: linear-gradient(180deg, rgba(10,166,255,0.22), rgba(10,166,255,0.08));
+}
+
+.pixel-button[data-variant="secondary"] {
+  border-color: var(--color-accent);
+  background: linear-gradient(180deg, rgba(169,112,255,0.22), rgba(169,112,255,0.08));
+}
+
+.pixel-button[data-variant="ghost"] {
+  border-color: #1f2a3d;
+  background: var(--color-surface);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-8);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.45);
+}
+
+.card-surface {
+  background: linear-gradient(180deg, rgba(22,31,49,0.92), rgba(17,26,42,0.98));
+  border: var(--pixel-border) solid #1f2a3d;
+  box-shadow: var(--shadow-8bit);
+  padding: var(--space-8);
+  border-radius: var(--pixel-radius);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-8);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
