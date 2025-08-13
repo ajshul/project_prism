@@ -46,7 +46,7 @@
   text-decoration: none;
   min-width: 220px;
   letter-spacing: 0.2px;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 .pixel-button:hover {
@@ -60,12 +60,20 @@
 
 .pixel-button[data-variant="primary"] {
   border-color: var(--color-primary);
-  background: linear-gradient(180deg, rgba(10,166,255,0.22), rgba(10,166,255,0.08));
+  background: linear-gradient(
+    180deg,
+    rgba(10, 166, 255, 0.22),
+    rgba(10, 166, 255, 0.08)
+  );
 }
 
 .pixel-button[data-variant="secondary"] {
   border-color: var(--color-accent);
-  background: linear-gradient(180deg, rgba(169,112,255,0.22), rgba(169,112,255,0.08));
+  background: linear-gradient(
+    180deg,
+    rgba(169, 112, 255, 0.22),
+    rgba(169, 112, 255, 0.08)
+  );
 }
 
 .pixel-button[data-variant="ghost"] {
@@ -84,11 +92,15 @@
   font-size: 24px;
   letter-spacing: 0.5px;
   color: var(--color-text);
-  text-shadow: 0 2px 0 rgba(0,0,0,0.45);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45);
 }
 
 .card-surface {
-  background: linear-gradient(180deg, rgba(22,31,49,0.92), rgba(17,26,42,0.98));
+  background: linear-gradient(
+    180deg,
+    rgba(22, 31, 49, 0.92),
+    rgba(17, 26, 42, 0.98)
+  );
   border: var(--pixel-border) solid #1f2a3d;
   box-shadow: var(--shadow-8bit);
   padding: var(--space-8);

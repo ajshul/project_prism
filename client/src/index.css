@@ -58,3 +58,47 @@ textarea {
 }
 
 /* Force dark mode only per product design */
+
+/* Top navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 18, 32, 0.98),
+    rgba(17, 26, 42, 0.98)
+  );
+  border-bottom: var(--pixel-border) solid #1f2a3d;
+  box-shadow: var(--shadow-8bit);
+}
+.top-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.brand {
+  font-family: var(--font-display);
+  color: var(--color-text);
+}
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* 8-bit micro-interactions */
+.pixel-button {
+  transition: transform 60ms ease-out, filter 120ms ease,
+    box-shadow 60ms ease-out;
+}
+.pixel-button:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+.pixel-button:active {
+  transform: translateY(1px) scale(0.98);
+  filter: brightness(0.92);
+}

@@ -26,3 +26,11 @@ export const SceneGeneratorInput = z.object({
 });
 
 export type SceneGeneratorInput = z.infer<typeof SceneGeneratorInput>;
+
+export const StoryProgressResult = z.object({
+  nextScene: SceneSpec,
+  checkpoint: z.string(),
+  consequences: z.array(z.string()),
+  updatedLearningTags: z.array(z.string()),
+});
+export type StoryProgressResult = z.infer<typeof StoryProgressResult>;

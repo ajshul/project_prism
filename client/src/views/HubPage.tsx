@@ -32,7 +32,11 @@ export function HubPage() {
             <Link to="/quest" className="pixel-button" data-variant="primary">
               Enter Current Quest
             </Link>
-            <Link to="/persona" className="pixel-button" data-variant="secondary">
+            <Link
+              to="/persona"
+              className="pixel-button"
+              data-variant="secondary"
+            >
               Edit Persona
             </Link>
             <Link to="/collab" className="pixel-button" data-variant="ghost">

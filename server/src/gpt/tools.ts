@@ -39,3 +39,92 @@ export function mockSceneFrom(input: SceneGeneratorInput): SceneSpec {
     ],
   };
 }
+
+// JSON Schemas for stricter output constraints (Responses API response_format)
+export const SceneSpecJsonSchema = {
+  name: "SceneSpec",
+  schema: {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      id: { type: "string" },
+      title: { type: "string" },
+      palette: { type: "array", items: { type: "string" } },
+      tiles: { type: "array", items: { type: "string" } },
+      characters: { type: "array", items: { type: "string" } },
+      props: { type: "array", items: { type: "string" } },
+      narration: { type: "string" },
+      choices: {
+        type: "array",
+        items: {
+          type: "object",
+          additionalProperties: false,
+          properties: {
+            id: { type: "string" },
+            label: { type: "string" },
+          },
+          required: ["id", "label"],
+        },
+      },
+    },
+    required: [
+      "id",
+      "title",
+      "palette",
+      "tiles",
+      "characters",
+      "props",
+      "narration",
+      "choices",
+    ],
+  },
+  strict: true,
+} as const;
+
+export const StoryProgressResultJsonSchema = {
+  name: "StoryProgressResult",
+  schema: {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      nextScene: SceneSpecJsonSchema.schema,
+      checkpoint: { type: "string" },
+      consequences: { type: "array", items: { type: "string" } },
+      updatedLearningTags: { type: "array", items: { type: "string" } },
+    },
+    required: [
+      "nextScene",
+      "checkpoint",
+      "consequences",
+      "updatedLearningTags",
+    ],
+  },
+  strict: true,
+} as const;
+
+export const AssessmentResultJsonSchema = {
+  name: "AssessmentResult",
+  schema: {
+    type: "object",
+    additionalProperties: false,
+    properties: {
+      observations: { type: "array", items: { type: "string" } },
+      masteryEstimates: {
+        type: "object",
+        additionalProperties: { type: "number" },
+      },
+      difficultyAdjustment: {
+        type: "string",
+        enum: ["easier", "same", "harder"],
+      },
+      recommendations: { type: "array", items: { type: "string" } },
+    },
+    required: [
+      "observations",
+      "masteryEstimates",
+      "difficultyAdjustment",
+      "recommendations",
+    ],
+  },
+  strict: true,
+} as const;

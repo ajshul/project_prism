@@ -43,9 +43,43 @@ export const StoryProgressResult = z.object({
 export type StoryProgressResult = z.infer<typeof StoryProgressResult>;
 
 export const AssessmentInput = z.object({
-  evidenceEvents: z.array(z.record(z.any())),
+  evidenceEvents: z.array(
+    z.union([
+      z.object({
+        type: z.literal("choice"),
+        sceneId: z.string(),
+        choiceId: z.string(),
+        timestamp: z.number().optional(),
+      }),
+      z.object({
+        type: z.literal("time_on_task"),
+        sceneId: z.string(),
+        seconds: z.number(),
+        timestamp: z.number().optional(),
+      }),
+      z.object({
+        type: z.literal("reflection"),
+        text: z.string(),
+        tags: z.array(z.string()).default([]),
+        timestamp: z.number().optional(),
+      }),
+      z.object({
+        type: z.literal("collab"),
+        action: z.enum(["message", "reaction", "review"]),
+        targetId: z.string().optional(),
+        metadata: z.record(z.any()).optional(),
+        timestamp: z.number().optional(),
+      }),
+    ])
+  ),
   rubricVersion: z.string(),
   learnerProfile: z.record(z.any()),
+  context: z
+    .object({
+      checkpoint: z.string().nullable().optional(),
+      scenarioId: z.string().optional(),
+    })
+    .optional(),
 });
 export type AssessmentInput = z.infer<typeof AssessmentInput>;
 
